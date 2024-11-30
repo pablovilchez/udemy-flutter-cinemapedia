@@ -1,13 +1,13 @@
 import 'movie_moviedb.dart';
 
-class MoviedbResponse {
+class MovieDbResponse {
   final Dates? dates;
   final int page;
   final List<MovieMoviedb> results;
   final int totalPages;
   final int totalResults;
 
-  MoviedbResponse({
+  MovieDbResponse({
     required this.dates,
     required this.page,
     required this.results,
@@ -15,8 +15,8 @@ class MoviedbResponse {
     required this.totalResults,
   });
 
-  factory MoviedbResponse.fromJson(Map<String, dynamic> json) => MoviedbResponse(
-    dates: json["dates"] ? Dates.fromJson(json["dates"]) : null,
+  factory MovieDbResponse.fromJson(Map<String, dynamic> json) => MovieDbResponse(
+    dates: json["dates"] != null ? Dates.fromJson(json["dates"]) : null,
     page: json["page"],
     results: List<MovieMoviedb>.from(json["results"].map((x) => MovieMoviedb.fromJson(x))),
     totalPages: json["total_pages"],
